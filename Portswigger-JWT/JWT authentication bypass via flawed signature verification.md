@@ -45,6 +45,7 @@ Used the **Attack** menu in the JWT Editor:
 * **Result:** The extension changed the header to `{"alg": "none"}` and stripped the signature, ensuring a trailing dot remains.
 
 **Modified JWT Structure:**
+
 ```text
 eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJwb3J0c3dpZ2dlciIsImV4cCI6MTc3NDUxNzY5Niwic3ViIjoiYWRtaW5pc3RyYXRvciJ9.
 Step 4: Verify Admin Access
@@ -86,9 +87,4 @@ PortSwigger Academy: JWT Attacks
 OWASP: JSON Web Token Cheat Sheet
 
 
----
 
-### Pro Tip for GitHub:
-Jab aap GitHub par naya file banayein, toh extension **`.md`** zaroori hai. Paste karne ke baad upar **"Preview"** tab par click karke check kar lena, woh bilkul professional dikhega.
-
-**Kya aap next lab (Weak Signing Key/Hashcat) ka writeup bhi isi format mein chahte hain?**
