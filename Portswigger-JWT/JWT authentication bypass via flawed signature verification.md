@@ -47,3 +47,48 @@ Used the **Attack** menu in the JWT Editor:
 **Modified JWT Structure:**
 ```text
 eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJwb3J0c3dpZ2dlciIsImV4cCI6MTc3NDUxNzY5Niwic3ViIjoiYWRtaW5pc3RyYXRvciJ9.
+Step 4: Verify Admin Access
+Sent the request to /admin.
+
+Response: HTTP/2 200 OK.
+
+The Admin Panel loaded successfully.
+
+Step 5: Lab Solved ✅
+Identified the delete link for carlos: /admin/delete?username=carlos.
+Changed the Repeater path to this URL and sent the request.
+
+Response: HTTP/2 302 Found.
+
+User carlos was deleted successfully.
+
+5. Root Cause Analysis
+The application blindly trusts the alg header. By allowing the none algorithm, the server bypasses the only security mechanism (the signature) that prevents unauthorized modification of user claims.
+
+6. Impact
+Critical: Full account takeover and privilege escalation.
+
+Severity: High
+
+7. Remediation
+Disable "none": Configure the JWT library to strictly reject alg: none.
+
+Whitelist Algorithms: Only allow specific strong algorithms like RS256.
+
+8. Key Takeaways
+Always check if the server enforces the signature check.
+
+Small structural details, like the trailing dot in alg: none, are critical for a successful bypass.
+
+9. References
+PortSwigger Academy: JWT Attacks
+
+OWASP: JSON Web Token Cheat Sheet
+
+
+---
+
+### Pro Tip for GitHub:
+Jab aap GitHub par naya file banayein, toh extension **`.md`** zaroori hai. Paste karne ke baad upar **"Preview"** tab par click karke check kar lena, woh bilkul professional dikhega.
+
+**Kya aap next lab (Weak Signing Key/Hashcat) ka writeup bhi isi format mein chahte hain?**
